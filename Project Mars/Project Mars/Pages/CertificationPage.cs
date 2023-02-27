@@ -1,15 +1,12 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Project_Mars.Utilities;
+
 
 namespace Project_Mars.Pages
 {
-    public class CertificationPage
+    public class CertificationPage: CommonDriver
     {
-        public void AddCertification(IWebDriver driver) 
+        public void AddCertification(IWebDriver driver)
         {
 
             //Click on Certification
@@ -42,30 +39,25 @@ namespace Project_Mars.Pages
             // Add new record
             IWebElement newCertificationRecord = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/div/div[3]/input[1]"));
             newCertificationRecord.Click();
-            Thread.Sleep(500);
+            //Thread.Sleep(500);
 
-            //click on update
-            IWebElement updateCertificate = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr/td[4]/span[1]/i"));
-            updateCertificate.Click();
-            Thread.Sleep(500);
-
-            //clear CertificateTextBox and reenter Value
-            IWebElement clearCertificateBox = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr/td/div/div/div[1]/input"));
-            clearCertificateBox.Clear();
-            clearCertificateBox.SendKeys("Management");
-            Thread.Sleep(500);
-
-            //Successfully update new Certificate
-            IWebElement newUpdate = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr/td/div/span/input[1]"));
-            newUpdate.Click();
-
-            ////Cancel update Certification
-            IWebElement cancelUpdateCertificate = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr/td/div/span/input[2]"));
-            cancelUpdateCertificate.Click();
-
-
-
-
+            Wait.WaitforelementstoBeClickable(driver, "XPath", "\"//*[@id=\\\"account-profile-section\\\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/div/div[3]/input[1]\"", 5);
         }
+        public string GetCertification() 
+        {
+            IWebElement certificationFrom = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/div/div[2]/div[1]/input"));
+            return certificationFrom.Text;
+        }
+        public string GetYear() 
+        {
+            IWebElement addYear = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/div/div[2]/div[2]/select"));
+            return addYear.Text;    
+        }
+        public string GetLevel() 
+        {
+            IWebElement certificationYear = driver.FindElement(By.XPath("//option[@value='2003' and text() ='2003']"));
+            return certificationYear.Text;
+        }
+
     }
 }

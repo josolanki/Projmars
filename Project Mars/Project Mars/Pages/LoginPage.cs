@@ -1,4 +1,6 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using Project_Mars.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +9,13 @@ using System.Threading.Tasks;
 
 namespace Project_Mars.Pages
 {
-    public class LoginPage
+    public class LoginPage:CommonDriver
     {
         public void LoginActions(IWebDriver driver)
+
         {
+            driver = new ChromeDriver();
+
             driver.Manage().Window.Maximize();
 
             //launch localhost portal
@@ -36,5 +41,6 @@ namespace Project_Mars.Pages
             loginButton.Click();
             Thread.Sleep(500);
         }
+        
     }
 }
