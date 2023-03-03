@@ -1,17 +1,13 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using Project_Mars.Pages;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Project_Mars.Utilities
 {
     public class CommonDriver
     {
-        public IWebDriver driver;
+        public static  IWebDriver driver;
         
 
         public void SignIn()
@@ -19,7 +15,7 @@ namespace Project_Mars.Utilities
 
             //Sign in page intialization and defination
             LoginPage loginPageObj = new LoginPage();
-            loginPageObj.LoginActions(driver);
+            loginPageObj.LoginActions();
         }
         
         public void CloseTest()

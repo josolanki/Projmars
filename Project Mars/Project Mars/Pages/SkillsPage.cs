@@ -6,7 +6,7 @@ namespace Project_Mars.Pages
 {
     public class SkillsPage:CommonDriver
     {
-        public void AddSkill(IWebDriver driver) 
+        public void AddSkill() 
 
         {
             Thread.Sleep(1000);
@@ -44,7 +44,7 @@ namespace Project_Mars.Pages
             IWebElement skillTextBox = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[2]"));
             return skillTextBox.Text;
         }
-        public string GetSkillLevel() 
+        public string GetSkillLevel()
         {
             IWebElement Skilllevel = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[2]"));
             return Skilllevel.Text;

@@ -11,7 +11,7 @@ namespace Project_Mars.Pages
 {
     public class LoginPage:CommonDriver
     {
-        public void LoginActions(IWebDriver driver)
+        public void LoginActions()
 
         {
             driver = new ChromeDriver();

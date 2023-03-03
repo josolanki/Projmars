@@ -6,7 +6,7 @@ namespace Project_Mars.Pages
 {
     public class CertificationPage: CommonDriver
     {
-        public void AddCertification(IWebDriver driver)
+        public void AddCertification()
         {
 
             //Click on Certification
@@ -41,7 +41,7 @@ namespace Project_Mars.Pages
             newCertificationRecord.Click();
             //Thread.Sleep(500);
 
-            Wait.WaitforelementstoBeClickable(driver, "XPath", "\"//*[@id=\\\"account-profile-section\\\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/div/div[3]/input[1]\"", 5);
+           // Wait.WaitforelementstoBeClickable(driver, "XPath", "\"//*[@id=\\\"account-profile-section\\\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/div/div[3]/input[1]\"", 10);
         }
         public string GetCertification() 
         {
