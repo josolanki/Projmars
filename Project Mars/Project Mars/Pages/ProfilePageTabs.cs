@@ -30,7 +30,7 @@ namespace Project_Mars.Pages
             //Find Certification Tab and click
             IWebElement certificationButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[4]"));
             certificationButton.Click();
-            Thread.Sleep(1500);
+           
         }
     }
 }

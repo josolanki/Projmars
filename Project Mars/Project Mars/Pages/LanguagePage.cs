@@ -1,43 +1,47 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using Project_Mars.Utilities;
+using SeleniumExtras.WaitHelpers;
+
 namespace Project_Mars.Pages
 {
     public class LanguagePage : CommonDriver
     {
+   
         public void CreateLanguage()
         {
-            
-            //Click on add new button
+        
+            //Click on add new Button
             IWebElement addNewButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div"));
             addNewButton.Click();
+
 
             //Enter Language
             IWebElement languageTextBox = driver.FindElement(By.Name("name"));
             languageTextBox.SendKeys("English");
-            Thread.Sleep(500);
 
             //Enter Level
             IWebElement chooseLanguageLevel = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[2]/select"));
             chooseLanguageLevel.Click();
-            Thread.Sleep(1500);
+            
 
             //Add level option
             IWebElement levelOption = driver.FindElement(By.XPath("//option[@value='Fluent' and text() ='Fluent']"));
             levelOption.Click();
-            Thread.Sleep(500);
+            
 
             //Click add language button
             IWebElement addLanguageButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[3]/input[1]"));
             addLanguageButton.Click();
-            //Thread.Sleep(500);
 
-            //Wait.WaitforelementstoBeClickable(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[3]/tr", 5);
 
-            //IWebElement newLanguage = driver.FindElement(By.XPath("//*[@id="account-profile-section"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[2]"));
+            //Wait.WaitforelementstoBeExit(driver,"XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]", 15);
+
+            // check if Language has added successfully
+           IWebElement newLanguage = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
            
-
-
-            // Assert.That(NewLanguage == "English", "Actul code and expected code do not match");
+            Assert.That(newLanguage.Text == "English", "Actul code and expected code do not match");
             // Assert.That(NewLevel == "Fluent", "Actul level and expected level do not match");
 
 
@@ -66,10 +70,6 @@ namespace Project_Mars.Pages
             //clear TextBox
             IWebElement updateTextbox = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[1]/tr/td/div/div[1]/input"));
             updateTextbox.Clear();
-            Thread.Sleep(2000);
-
-            //updateTextbox.Click();
-            Thread.Sleep(500);
             updateTextbox.SendKeys("Hindi");
 
             //Update Level
@@ -77,12 +77,12 @@ namespace Project_Mars.Pages
             clearLevel.Click();
             Thread.Sleep(500);
             clearLevel.SendKeys("[@value='Fluent' and text() ='Fluent']");
-            Thread.Sleep(500);
+            
 
             //Click on Update Button
             IWebElement updateButton = driver.FindElement(By.XPath("//input[@value='Update']"));
             updateButton.Click();
-            Thread.Sleep(500);
+            
 
         }
         public string GetNewLanguage(IWebDriver driver)
