@@ -10,19 +10,19 @@ namespace Project_Mars.Utilities
             if (locator == "XPath")
             {
 
-                 wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath(" locatorValue")));
+                 wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath( locatorValue)));
             }
 
             if (locator == "Id")
             {
 
-                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id(" locatorValue")));
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id( locatorValue)));
             }
 
             if (locator == "CssSelector")
             {
 
-                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.CssSelector(" locatorValue")));
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.CssSelector(locatorValue)));
             }
 
 
@@ -33,19 +33,19 @@ namespace Project_Mars.Utilities
             if (locator == "XPath")
             {
 
-                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.XPath(" locatorValue")));
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.XPath(locatorValue)));
             }
 
             if (locator == "Id")
             {
 
-                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.Id(" locatorValue")));
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.Id(locatorValue)));
             }
 
             if (locator == "CssSelector")
             {
 
-                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.CssSelector(" locatorValue")));
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.CssSelector(locatorValue)));
             }
 
 
